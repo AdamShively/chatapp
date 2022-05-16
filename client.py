@@ -16,11 +16,11 @@ def try_connecting(client):
             chat_name = sg.popup_get_text('Screen name', 'Please input screen name')
             client.send(chat_name.encode(FORMAT))
             break
-        except:
-            error_window()
+        except Exception as e:
+            error_window(e)
             
-def error_window():
-    layout = [[sg.Text('No connection could be made at this time.')],
+def error_window(e):
+    layout = [[sg.Text(f'[{e}]')],
             [sg.Button('Try Again?'), sg.Button('Exit')]]
 
     window = sg.Window('ERROR!', layout)
