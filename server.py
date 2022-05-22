@@ -1,6 +1,5 @@
 import threading
 import socket
-import PySimpleGUI as sg
 users = []
 
 class User:
